@@ -1,0 +1,21 @@
+.app-text {
+    &.app-text__size {
+        &--medium {
+            font-size: 18px;
+        }
+        &--big {
+            font-size: 22px;
+        }
+    }
+    &.app-text__color {
+        &--theme {
+            color: $main_theme_color;
+        }
+        &--gray {
+            color: $theme_third_color;
+        }
+        &--white {
+            color: white;
+        }
+    }
+}
