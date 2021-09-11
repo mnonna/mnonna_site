@@ -16,7 +16,10 @@
               <div class="col-md-6">
                 <div class="app-hero__secondaryImg d-flex">
                   <div class="app-hero__secondaryImg--wrapper">
-                    <img :src="urls.heroSecondaryImg" alt />
+                    <div
+                      class="app-hero__secondaryImg--photo"
+                      :style="`background-image: url('${urls.heroSecondaryImg}');`"
+                    ></div>
                   </div>
                 </div>
               </div>
@@ -152,11 +155,13 @@
         border-top: 1px solid $main_theme_color;
         border-bottom: 1px solid $main_theme_color;
       }
-      img {
-        width: 100%;
-        height: 100%;
-        border-radius: 100px;
-      }
+    }
+    &--photo {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
     }
   }
   &__scroll {
@@ -178,7 +183,7 @@
         }
         50% {
           transform: translateY(-20px);
-        }        
+        }
         75% {
           transform: translateY(0);
         }
@@ -216,15 +221,15 @@ export default {
 
   computed: {
     heroBgStyle: function() {
-      if(this.urls.heroMainImg) {
+      if (this.urls.heroMainImg) {
         let heroStyle = {
-          'background-image': `linear-gradient(90deg, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.75) 35%, rgba(182,182,182,0.5046393557422969) 100%), url('${this.urls.heroMainImg}')`,
-          'background-position': 'center',
-          'background-size': 'cover'
-        }
-        return heroStyle
-      }else {
-        return ``
+          "background-image": `linear-gradient(90deg, rgba(26,26,26,0.9) 0%, rgba(26,26,26,0.75) 35%, rgba(182,182,182,0.5046393557422969) 100%), url('${this.urls.heroMainImg}')`,
+          "background-position": "center",
+          "background-size": "cover"
+        };
+        return heroStyle;
+      } else {
+        return ``;
       }
     }
   },
@@ -237,8 +242,7 @@ export default {
           this.urls.heroMainImg =
             this.api_url + response.data.hero_background.url;
           this.urls.heroSecondaryImg =
-            this.api_url +
-            response.data.hero_secondary_img.formats.medium.url;
+            this.api_url + response.data.hero_secondary_img.formats.medium.url;
           this.title = response.data.hero_title;
           this.description = response.data.hero_desc_text;
           this.leadText = response.data.hero_lead_text;

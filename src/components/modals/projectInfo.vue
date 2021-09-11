@@ -23,6 +23,14 @@
 </template>
 
 <style lang="scss" scoped>
+.app-modal {
+  &__content {
+    overflow-y: auto;
+    .app-image {
+      width: 100%;
+    }
+  }
+}
 </style>
 
 <script>

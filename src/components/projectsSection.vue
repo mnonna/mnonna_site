@@ -9,7 +9,7 @@
       <div class="row">
         <div class="col-lg-12">
           <div class="app-projects__lead">
-            <div class="app-projects__lead--image">
+            <div class="app-projects__lead--image d-flex d-md-block justify-content-center justify-content-md-start">
               <img :src="sectionLeadImg" alt />
             </div>
             <div class="app-projects__lead--desc">
@@ -49,8 +49,13 @@
       flex: 0 0 100%;
       max-width: 100%;
       img {
-        width: 100%;
+        width: 60%;
         height: auto;
+        margin: 0 0 20px 0;
+        @media screen and (min-width: 768px) {
+          width: 80%;
+          margin: 0;
+        }
       }
     }
     @media screen and (min-width: 768px) {

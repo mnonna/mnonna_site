@@ -7,16 +7,16 @@
         </div>
         <div class="app-header__links d-flex">
           <div class="app-header__links--single d-flex align-items-center justify-content-center" data-link="appAbout">
-            <a href @click="navigateToSection($event)">About Me</a>
+            <a href>About Me</a>
           </div>
           <div class="app-header__links--single d-flex align-items-center justify-content-center" data-link="appProjects">
-            <a href @click="navigateToSection($event)">Projects</a>
+            <a href>Projects</a>
           </div>
           <div class="app-header__links--single d-flex align-items-center justify-content-center" data-link="appTech">
-            <a href @click="navigateToSection($event)">Technologies</a>
+            <a href>Technologies</a>
           </div>
           <div class="app-header__links--single d-flex align-items-center justify-content-center" data-link="appContact">
-            <a href @click="navigateToSection($event)">Contact</a>
+            <a href>Contact</a>
           </div>
         </div>
       </nav>
@@ -94,6 +94,7 @@ export default {
     this.$root.$on("footerMounted", () => {
       const sections = document.querySelectorAll(".app-section");
       this.navigationHandler(sections);
+      this.navigateToSection()
     });
   },
 
@@ -133,22 +134,28 @@ export default {
       });
     },
 
-    navigateToSection: function($event) {
-      $event.preventDefault();
+    navigateToSection: function() {
+      const links = document.querySelectorAll('.app-header__links--single')
 
-      const section = $event.target.getAttribute("data-link");
-      const navbarHeight = document
-        .querySelector(".app-header")
-        .getBoundingClientRect().height;
-      var scrollPos =
-        window.innerWidth < 768
-          ? document.querySelector(`#${section}`).offsetTop
-          : document.querySelector(`#${section}`).offsetTop - navbarHeight;
+      links.forEach(link => {
+        const anchor = link.querySelector('a')
+        anchor.addEventListener('click', function($event) {
+          $event.preventDefault()
+          const section = link.getAttribute("data-link");
+          const navbarHeight = document
+            .querySelector(".app-header")
+            .getBoundingClientRect().height;
+          var scrollPos =
+            window.innerWidth < 768
+              ? document.querySelector(`#${section}`).offsetTop
+              : document.querySelector(`#${section}`).offsetTop - navbarHeight;
 
-      window.scrollTo({
-        top: scrollPos,
-        behavior: "smooth"
-      });
+          window.scrollTo({
+            top: scrollPos,
+            behavior: "smooth"
+          });
+        })
+      })
     }
   }
 };
