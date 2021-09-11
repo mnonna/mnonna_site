@@ -232,7 +232,7 @@ export default {
   methods: {
     getHeroImgAssets: async function() {
       await axios
-        .get("http://localhost:1337/hero")
+        .get(`${this.api_url}/hero`)
         .then(response => {
           this.urls.heroMainImg =
             this.api_url + response.data.hero_background.url;
