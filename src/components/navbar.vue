@@ -110,8 +110,6 @@ export default {
           const top = sec.offsetTop;
           const height = sec.clientHeight;
 
-          console.log(sec.getAttribute("data-nav-item"));
-
           if (pageYOffset >= (top - scrollOffset)) {
             let target = sec.getAttribute("data-nav-item");
 
