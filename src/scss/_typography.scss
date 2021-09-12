@@ -19,3 +19,29 @@
         }
     }
 }
+
+.app-heading {
+    &.app-heading__medium {
+        @media screen and (min-width: 1200px) {
+            font-size: 36px;
+        }
+    }
+}
+
+.text-weight {
+    &__semibold {
+        font-weight: 600;
+    }
+}
+
+.text__color {
+    &__theme {
+        color: $main_theme_color;
+    }
+    &__gray {
+        color: $theme_third_color;
+    }
+    &__white {
+        color: white;
+    }
+}

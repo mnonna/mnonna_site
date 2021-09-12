@@ -1,89 +1,89 @@
 <template>
   <div class="app-single-project">
-    <div class="app-single-project__thumb" :style="projectBgImage" ref="projectThumbnail">
-      <div
-        class="app-single-project__more justify-content-center align-items-center flex-column"
-        ref="projectMore"
-      >
-        <a :href="projectUrl" target="_blank" class="d-none" v-show="projectUrl">
-          <button
-            type="button"
-            class="app-button app-button__casual app-button__bg--white app-button__radius--30 mb-3"
-          >
-            <span class="app-text app-text__fontWeight--600">Zobacz</span>
-          </button>
-        </a>
-        <a :href="githubUrl" target="_blank" class="d-none" v-show="githubUrl">
-          <button
-            type="button"
-            class="app-button app-button__casual app-button__bg--white app-button__radius--30 d-flex justify-content-center align-items-center"
-          >
-            <span class="app-text app-text__fontWeight--600 mr-2">GitHub</span>
-            <font-awesome-icon :icon="['fab', 'github']"/>
-          </button>
-        </a>
-        <div class="app-single-project__openDesc d-none justify-content-center align-items-center flex-column">
-          <button class="app-button app-button__clean app-button__icon app-button__expand show-project-desc-modal" @click="toggleProjectInfo">
-            <font-awesome-icon :icon="['fas', 'info']"/>
-          </button>
+    <div class="row m-0">
+      <div class="col-lg-6 p-0" :class="order%2 == 0 ? 'order-lg-1' : 'order-lg-2'">
+        <div class="app-single-project__thumb" :style="projectBgImage" ref="projectThumbnail"></div>
+      </div>
+      <div class="col-lg-6 p-0" :class="order%2 == 0 ? 'order-lg-2' : 'order-lg-1'">
+        <div class="app-single-project__info d-flex flex-column justify-content-center" :class="order%2 == 0 ? 'bg__themeProjects' : ''">
+          <div class="app-single-project__title">
+            <h2 class="app-heading app-heading__medium text-weight__semibold">{{ name }}</h2>
+          </div>
+          <div class="app-single-project__desc">
+            <p class="app-text">{{ desc }}</p>
+          </div>
+          <div class="d-flex">
+            <a :href="projectUrl" target="_blank" v-show="projectUrl">
+              <button
+                type="button"
+                class="app-button app-button__casual app-button__bg--white app-button__radius--30 mb-3"
+              >
+                <span class="app-text app-text__fontWeight--600">Live site</span>
+              </button>
+            </a>
+            <a :href="githubUrl" target="_blank" v-show="githubUrl">
+              <button
+                type="button"
+                class="app-button app-button__casual app-button__bg--white app-button__radius--30 d-flex justify-content-center align-items-center"
+                :class="(projectUrl) ? 'ml-3' : ''"
+              >
+                <span class="app-text app-text__fontWeight--600 mr-2">GitHub</span>
+                <font-awesome-icon :icon="['fab', 'github']" />
+              </button>
+            </a>
+          </div>
         </div>
       </div>
     </div>
+
     <projectDesc :desc="desc" :show="showInfo" :image="image" />
   </div>
 </template>
 
 <style lang="scss" scoped>
 .app-single-project {
-  padding: 30px 0 30px 0;
-  &__content {
-    margin-top: 20px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid black;
+  @media screen and (min-width: 992px) {
+    margin-bottom: 0;
+    border-bottom: none;
   }
   &__thumb {
     position: relative;
-    border-radius: 10px;
-    height: 250px;
+    height: 300px;
     @media screen and (min-width: 768px) {
-      height: 310px;
+      height: 400px;
+    }
+    @media screen and (min-width: 768px) {
+      height: 500px;
+    }
+    @media screen and (min-width: 1200px) {
+      height: 600px;
     }
   }
-  &__more {
-    display: flex;
-    opacity: 0;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    border-radius: 10px;
-    background: radial-gradient(
-      circle,
-      rgba(36, 36, 36, 0.9) 0%,
-      rgba(34, 34, 34, 0.75) 50%,
-      rgba(78, 77, 77, 0.5046393557422969) 100%
-    );
-    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-    &.show {
-      width: 100%;
-      opacity: 1;
+  &__info {
+    padding: 30px;
+    @media screen and (min-width: 768px) {
+      height: 400px;
+    }
+    @media screen and (min-width: 992px) {
+      padding: 40px 80px 40px 80px;
+      height: 500px;
+    }
+    @media screen and (min-width: 1200px) {
+      padding: 80px 150px 80px 150px;
+       height: 600px;
     }
   }
-  &__openDesc {
-    position: absolute;
-    display: flex;
-    top: 0;
-    right: 0;
-    border-top-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    width: 50px;
-    height: 50px;
-    background: black;
+  &__title,
+  &__desc {
+    margin: 0 0 30px 0;
   }
 }
 </style>
 
 <script>
-const projectDesc = () => import("../modals/projectInfo"); 
+const projectDesc = () => import("../modals/projectInfo");
 export default {
   components: {
     projectDesc
@@ -94,7 +94,8 @@ export default {
     image: String,
     desc: String,
     projectUrl: String,
-    githubUrl: String
+    githubUrl: String,
+    order: Number
   },
   computed: {
     projectBgImage: function() {
@@ -146,14 +147,14 @@ export default {
         );
       }.bind(this)
     );
-    this.$root.$on('close-modal', () => {
-      this.showInfo = false
-    })
+    this.$root.$on("close-modal", () => {
+      this.showInfo = false;
+    });
   },
 
   methods: {
     toggleProjectInfo() {
-      this.showInfo = true
+      this.showInfo = true;
     }
   }
 };

@@ -28,3 +28,12 @@
     border-radius: 15px;
   }
 }
+
+.bg {
+  &__theme {
+    background: $main-theme-color;
+  }
+  &__themeProjects {
+    background: $main_theme_color_projects;
+  }
+}

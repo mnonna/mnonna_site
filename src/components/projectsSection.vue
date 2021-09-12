@@ -20,16 +20,17 @@
       </div>
     </div>
     <div class="app-projects__list">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6" v-for="(project) in projects" :key="project.id">
+      <div class="container-fluid p-0">
+        <div class="row m-0">
+          <div class="col-lg-12 p-0" v-for="(project, i) in projects" :key="project.id">
             <project
               :id="project.id"
               :name="project.name"
-              :image="api_url + project.image.formats.medium.url"
+              :image="api_url + project.image.url"
               :desc="project.description"
               :projectUrl="project.project_url"
               :githubUrl="project.github_url"
+              :order="i"
             />
           </div>
         </div>
@@ -83,7 +84,7 @@
       rgba(213, 213, 213, 0.75) 85%,
       rgba(238, 238, 238, 0.5046393557422969) 100%
     );*/
-    background-image: url('../assets/Group 5.png');
+    //background-image: url('../assets/Group 5.png');
     background-size: contain;
     background-repeat: repeat;
     background-position: bottom;
