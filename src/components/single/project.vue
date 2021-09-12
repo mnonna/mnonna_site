@@ -5,7 +5,10 @@
         <div class="app-single-project__thumb" :style="projectBgImage" ref="projectThumbnail"></div>
       </div>
       <div class="col-lg-6 p-0" :class="order%2 == 0 ? 'order-lg-2' : 'order-lg-1'">
-        <div class="app-single-project__info d-flex flex-column justify-content-center" :class="order%2 == 0 ? 'bg__themeProjects' : ''">
+        <div
+          class="app-single-project__info d-flex flex-column justify-content-center"
+          :class="order%2 == 0 ? 'bg__themeProjects' : ''"
+        >
           <div class="app-single-project__title">
             <h2 class="app-heading app-heading__medium text-weight__semibold">{{ name }}</h2>
           </div>
@@ -72,7 +75,7 @@
     }
     @media screen and (min-width: 1200px) {
       padding: 80px 150px 80px 150px;
-       height: 600px;
+      height: 600px;
     }
   }
   &__title,
@@ -117,40 +120,7 @@ export default {
     };
   },
 
-  mounted: function() {
-    this.$refs.projectThumbnail.addEventListener(
-      "mouseenter",
-      function() {
-        this.$refs.projectMore.classList.add("show");
-        setTimeout(
-          function() {
-            this.$refs.projectMore.children.forEach(el => {
-              el.classList.remove("d-none");
-            });
-          }.bind(this),
-          500
-        );
-      }.bind(this)
-    );
-    this.$refs.projectThumbnail.addEventListener(
-      "mouseleave",
-      function() {
-        this.$refs.projectMore.children.forEach(el => {
-          el.classList.add("d-none");
-        });
-
-        setTimeout(
-          function() {
-            this.$refs.projectMore.classList.remove("show");
-          }.bind(this),
-          200
-        );
-      }.bind(this)
-    );
-    this.$root.$on("close-modal", () => {
-      this.showInfo = false;
-    });
-  },
+  mounted: function() {},
 
   methods: {
     toggleProjectInfo() {
