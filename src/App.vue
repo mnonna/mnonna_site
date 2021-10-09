@@ -5,6 +5,7 @@
     <about id="appAbout" />
     <projects id="appProjects" />
     <tech id="appTech" />
+    <contact id="appContact" />
     <appFooter />
   </div>
 </template>
@@ -55,6 +56,7 @@ const hero = () => import("./components/heroSection");
 const about = () => import("./components/aboutSection");
 const projects = () => import("./components/projectsSection");
 const tech = () => import("./components/techSection");
+const contact = () => import("./components/contact");
 const appFooter = () => import("./components/footerSection");
 export default {
   name: "App",
@@ -64,6 +66,7 @@ export default {
     about,
     projects,
     tech,
+    contact,
     appFooter
   }
 };

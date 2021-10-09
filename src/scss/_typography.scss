@@ -1,47 +1,59 @@
 .app-text {
-    &.app-text__size {
-        &--medium {
-            font-size: 18px;
-        }
-        &--big {
-            font-size: 22px;
-        }
+  &.app-text__size {
+    &--medium {
+      font-size: 18px;
     }
-    &.app-text__color {
-        &--theme {
-            color: $main_theme_color;
-        }
-        &--gray {
-            color: $theme_third_color;
-        }
-        &--white {
-            color: white;
-        }
+    &--big {
+      font-size: 22px;
     }
+  }
+  &.app-text__color {
+    &--theme {
+      color: $main_theme_color;
+    }
+    &--gray {
+      color: $theme_third_color;
+    }
+    &--white {
+      color: white;
+    }
+  }
 }
 
 .app-heading {
-    &.app-heading__medium {
-        @media screen and (min-width: 1200px) {
-            font-size: 36px;
-        }
+  &.app-heading__form {
+    margin: 0 0 20px 0;
+    @media screen and (min-width: 1200px) {
+      font-size: 32px;
     }
+  }
+  &.app-heading__medium {
+    @media screen and (min-width: 1200px) {
+      font-size: 36px;
+    }
+  }
 }
 
 .text-weight {
-    &__semibold {
-        font-weight: 600;
-    }
+  &__semibold {
+    font-weight: 600;
+  }
+}
+
+.text-style {
+  &__uppercase {
+    text-transform: uppercase;
+  }
 }
 
 .text__color {
-    &__theme {
-        color: $main_theme_color;
-    }
-    &__gray {
-        color: $theme_third_color;
-    }
-    &__white {
-        color: white;
-    }
+  &__theme {
+    color: $main_theme_color;
+  }
+  &__gray {
+    color: $theme_third_color;
+  }
+  &__white {
+    color: white;
+  }
 }

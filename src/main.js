@@ -7,12 +7,14 @@ import { faChevronCircleDown } from '@fortawesome/free-solid-svg-icons'
 import { faGithub } from '@fortawesome/free-brands-svg-icons'
 import { faInfo } from '@fortawesome/free-solid-svg-icons'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { faSpinner } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(faChevronCircleDown);
 library.add(faGithub);
 library.add(faInfo);
 library.add(faTimes);
+library.add(faSpinner);
 
 Vue.component('font-awesome-icon', FontAwesomeIcon);
 

@@ -2,14 +2,18 @@
   <section class="app-projects app-section" data-nav-item="appProjects">
     <div class="container">
       <div class="row">
-        <div class="section-main-header">
-          <h2 class="section-main-header__text">Projects</h2>
+        <div class="col-12">
+          <div class="section-main-header">
+            <h2 class="section-main-header__text">Projects</h2>
+          </div>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-12">
           <div class="app-projects__lead">
-            <div class="app-projects__lead--image d-flex d-md-block justify-content-center justify-content-md-start">
+            <div
+              class="app-projects__lead--image d-flex d-md-block justify-content-center justify-content-md-start"
+            >
               <img :src="sectionLeadImg" alt />
             </div>
             <div class="app-projects__lead--desc">
@@ -77,18 +81,9 @@
   &__list {
     padding: 20px 0 20px 0;
     width: 100%;
-    /*background-image: linear-gradient(
-      90deg,
-      rgba(255, 211, 42, 0.8) 0%,
-      rgba(255, 211, 42, 0.8) 30%,
-      rgba(213, 213, 213, 0.75) 85%,
-      rgba(238, 238, 238, 0.5046393557422969) 100%
-    );*/
-    //background-image: url('../assets/Group 5.png');
     background-size: contain;
     background-repeat: repeat;
     background-position: bottom;
-
   }
 }
 </style>

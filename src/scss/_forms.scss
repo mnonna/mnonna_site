@@ -1,0 +1,31 @@
+.app-form {
+  .app-button {
+    min-height: 50px;
+  }
+}
+
+.app-input {
+  &:not(textarea) {
+    min-height: 50px;
+  }
+  &:focus,
+  &:focus-within {
+    border: 2px solid black;
+    &::placeholder {
+      color: black;
+    }
+  }
+  &:focus-visible {
+    outline: none;
+  }
+  margin: 10px 0;
+  padding: 0 0 0 20px;
+  border-radius: 10px;
+  border: 1px solid $theme_third_color;
+  &:focus {
+    border-width: 2px;
+  }
+  &.app-input__invalid {
+    border: 1px solid red;
+  }
+}

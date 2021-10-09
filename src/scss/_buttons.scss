@@ -1,43 +1,64 @@
 .app-button {
-    border: 1px solid black;
+  border: 1px solid black;
+  outline: none;
+  &:disabled {
+    background: $theme_third_color !important;
+    color: white;
+  }
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: 2px solid black;
+  }
+  &.app-button__casual {
+    padding: 10px 45px;
+  }
+  &.app-button__radius {
+    &--10 {
+      border-radius: 10px;
+    }
+    &--20 {
+      border-radius: 20px;
+    }
+    &--30 {
+      border-radius: 30px;
+    }
+    &--40 {
+      border-radius: 40px;
+    }
+  }
+  &.app-button__bg {
+    &--transparent {
+      background: transparent;
+    }
+    &--theme {
+      background: $main_theme_color;
+    }
+    &--white {
+      background: white;
+    }
+  }
+  &.app-button__clean {
+    border: none;
     outline: none;
-    &.app-button__casual {
-        padding: 10px 45px;
-    }
-    &.app-button__radius{
-        &--30 {
-           border-radius: 30px; 
-        }
-    }
-    &.app-button__bg{
-        &--transparent {
-            background: transparent;
-        }
-        &--theme {
-            background: $main_theme_color;
-        }
-        &--white {
-            background: white;
-        }
-    }
-    &.app-button__clean {
-        border: none;
-        outline: none;
-        background: transparent;
-    }
-    &.app-button__expand {
-        width: 100%;
-        height: 100%;
-    }
-    &.app-button__icon {
-        color: $main_theme_color;
-    }
+    background: transparent;
+  }
+  &.app-button__expand {
+    width: 100%;
+    height: 100%;
+  }
+  &.app-button__icon {
+    color: $main_theme_color;
+  }
+  &.app-button__fullWidth {
+    width: 100%;
+  }
 }
 
 .app-text {
-    &.app-text__fontWeight {
-        &--600 {
-            font-weight: 600;
-        }
+  &.app-text__fontWeight {
+    &--600 {
+      font-weight: 600;
     }
+  }
 }
