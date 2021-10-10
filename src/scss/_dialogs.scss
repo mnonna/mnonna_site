@@ -1,8 +1,12 @@
 .app-dialog {
     position: fixed;
-    bottom: 50px;
-    right: 30px;
+    bottom: 150px;
+    right: 15px;
     animation: slide 1s ease-in-out;
+    @media screen and (min-width: 768px) {
+        bottom: 50px;
+        right: 30px;
+    }
     @keyframes slide {
         0% {
             transform: translateX(9999px) 
