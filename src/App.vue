@@ -7,6 +7,7 @@
     <tech id="appTech" />
     <contact id="appContact" />
     <appFooter />
+    <statusesDialogs />
   </div>
 </template>
 
@@ -58,6 +59,7 @@ const projects = () => import("./components/projectsSection");
 const tech = () => import("./components/techSection");
 const contact = () => import("./components/contact");
 const appFooter = () => import("./components/footerSection");
+const statusesDialogs = () => import("./components/appStatusMessages"); 
 export default {
   name: "App",
   components: {
@@ -67,7 +69,8 @@ export default {
     projects,
     tech,
     contact,
-    appFooter
+    appFooter,
+    statusesDialogs
   }
 };
 </script>

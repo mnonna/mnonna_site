@@ -1,0 +1,24 @@
+.app-dialog {
+    position: fixed;
+    bottom: 50px;
+    right: 30px;
+    animation: slide 1s ease-in-out;
+    @keyframes slide {
+        0% {
+            transform: translateX(9999px) 
+        }
+        100% {
+            transform: translateX(0)
+        }
+    }
+    &.app-dialog__status {
+        display: flex;
+        padding: 20px;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 10px $overlay_color;
+    }
+    &__message {
+        padding: 0 30px 0 0;
+    }
+}

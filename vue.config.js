@@ -9,6 +9,7 @@ module.exports = {
             @import "@/scss/_buttons.scss";
             @import "@/scss/_modals.scss";
             @import "@/scss/_forms.scss";
+            @import "@/scss/_dialogs.scss";
             @import "@/scss/_typography.scss";
           `
       }

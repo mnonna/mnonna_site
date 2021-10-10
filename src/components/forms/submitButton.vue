@@ -15,6 +15,7 @@
 
 <script>
 import axios from "axios";
+import { mapActions } from 'vuex'
 export default {
   props: {
     disabled: Boolean,
@@ -25,10 +26,13 @@ export default {
     return {
       post: new FormData(),
       processing: false,
-      statusMessaage: ""
+      statusMessage: ""
     };
   },
   methods: {
+    ...mapActions({
+      addFormMessage: 'forms/addFormMessage'
+    }),
     async submitForm($event) {
       this.processing = true;
       const data = this.data;
@@ -38,13 +42,16 @@ export default {
       await axios
         .post(this.endpoint, this.post)
         .then(response => {
-          this.statusMessaage = response.data.message;
+          this.statusMessage = response.data.message;
+          this.formPushStatusMessage(this.statusMessage, true)
         })
         .catch(error => {
-          this.statusMessaage = error.data.message;
+          this.statusMessage = error.data.message;
+          this.formPushStatusMessage(this.statusMessage, false)
         })
         .then(() => {
-          this.cleanForm(this.statusMessaage, $event.target);
+          this.flushFormData(this.post)
+          this.cleanForm(this.statusMessage, $event.target);
           this.processing = false;
         });
     },
@@ -52,10 +59,21 @@ export default {
       const form = target.closest("form");
       const id = form?.id;
       const data = {
-        formID: id,
-        message: message
+        formID: id
       };
       this.$root.$emit("formSubmitted", data);
+    },
+    formPushStatusMessage(message, status) {
+      let key = (Math.random() + 1).toString(36).substring(7)
+      let formMessage = {
+        message: message,
+        key: key,
+        status: status
+      }
+      this.addFormMessage(formMessage)
+    },
+    flushFormData() {
+      this.post = new FormData()
     }
   }
 };
