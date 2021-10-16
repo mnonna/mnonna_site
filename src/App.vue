@@ -36,19 +36,6 @@ body p {
     font-size: 16px;
   }
 }
-
-::-webkit-scrollbar {
-  width: 20px;
-}
-
-::-webkit-scrollbar-track {
-  background: white;
-}
-
-::-webkit-scrollbar-thumb {
-  background: $main_theme_color;
-  border-radius: 20px;
-}
 </style>
 
 <script>
