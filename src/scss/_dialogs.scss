@@ -1,28 +1,51 @@
 .app-dialog {
-    position: fixed;
-    bottom: 150px;
-    right: 15px;
-    animation: slide 1s ease-in-out;
-    @media screen and (min-width: 768px) {
-        bottom: 50px;
-        right: 30px;
+  position: fixed;
+  bottom: 150px;
+  right: 15px;
+  animation: slide 1s ease-in-out;
+  @media screen and (min-width: 768px) {
+    bottom: 50px;
+    right: 30px;
+  }
+  @keyframes slide {
+    0% {
+      transform: translateX(9999px);
     }
-    @keyframes slide {
-        0% {
-            transform: translateX(9999px) 
-        }
-        100% {
-            transform: translateX(0)
-        }
+    100% {
+      transform: translateX(0);
     }
-    &.app-dialog__status {
-        display: flex;
-        padding: 20px;
-        border-radius: 5px;
-        background: white;
-        box-shadow: 0 0 10px $overlay_color;
+  }
+  &.app-dialog__status {
+    display: flex;
+    padding: 20px;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 10px $overlay_color;
+    &.success {
+      background: $dialog_status_success;
+      color: white;
+      svg,
+      svg path {
+        fill: white;
+      }
     }
-    &__message {
-        padding: 0 30px 0 0;
+    &.error {
+      background: $dialog_status_error;
+      color: white;
+      svg,
+      svg path {
+        fill: white;
+      }
     }
+  }
+  &__message {
+    padding: 0 30px 0 0;
+  }
+  &__close {
+    outline: none;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
 }

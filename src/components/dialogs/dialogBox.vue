@@ -1,5 +1,5 @@
 <template>
-    <aside class="app-dialog app-dialog__status" :data-key="dialogKey">
+    <aside class="app-dialog app-dialog__status" :data-key="dialogKey" :class="statusString">
         <div class="app-dialog__message">{{ message }}</div>
         <button class="app-button app-dialog__close" @click="closeMessageDialog">
             <font-awesome-icon :icon="['fa', 'times']" />

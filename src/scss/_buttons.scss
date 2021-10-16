@@ -1,6 +1,7 @@
 .app-button {
   border: 1px solid black;
   outline: none;
+  cursor: pointer;
   &:disabled {
     background: $theme_third_color !important;
     color: white;

@@ -15,25 +15,28 @@
           <div class="app-single-project__desc">
             <p class="app-text">{{ desc }}</p>
           </div>
-          <div class="d-flex">
-            <a :href="projectUrl" target="_blank" v-show="projectUrl">
-              <button
-                type="button"
-                class="app-button app-button__casual app-button__bg--white app-button__radius--30 mb-3"
-              >
-                <span class="app-text app-text__fontWeight--600">Live site</span>
-              </button>
-            </a>
-            <a :href="githubUrl" target="_blank" v-show="githubUrl">
-              <button
-                type="button"
-                class="app-button app-button__casual app-button__bg--white app-button__radius--30 d-flex justify-content-center align-items-center"
-                :class="(projectUrl) ? 'ml-3' : ''"
-              >
-                <span class="app-text app-text__fontWeight--600 mr-2">GitHub</span>
-                <font-awesome-icon :icon="['fab', 'github']" />
-              </button>
-            </a>
+          <div class="app-single-project__socials d-flex flex-wrap">
+            <div class="app-single-project__socials--single">
+              <a :href="projectUrl" target="_blank" v-show="projectUrl">
+                <button
+                  type="button"
+                  class="app-button app-button__casual app-button__bg--white app-button__radius--30 mb-3"
+                >
+                  <span class="app-text app-text__fontWeight--600">Live site</span>
+                </button>
+              </a>
+            </div>
+            <div class="app-single-project__socials--single">
+              <a :href="githubUrl" target="_blank" v-show="githubUrl">
+                <button
+                  type="button"
+                  class="app-button app-button__casual app-button__bg--white app-button__radius--30 d-flex justify-content-center align-items-center"
+                >
+                  <span class="app-text app-text__fontWeight--600 mr-2">GitHub</span>
+                  <font-awesome-icon :icon="['fab', 'github']" />
+                </button>
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -81,6 +84,16 @@
   &__title,
   &__desc {
     margin: 0 0 30px 0;
+  }
+  &__socials {
+    margin: 0 -5px;
+    flex-direction: column;
+    @media screen and (min-width: 360px) {
+      flex-direction: row;
+    }
+    &--single {
+      padding: 0 5px;
+    }
   }
 }
 </style>

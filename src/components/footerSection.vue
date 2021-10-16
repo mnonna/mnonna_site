@@ -26,10 +26,7 @@
 <style lang="scss" scoped>
 .app-footer {
   background-color: black;
-  padding: 0 0 150px 0;
-  @media screen and (min-width: 768px) {
-    padding: 0;
-  }
+  padding: 0;
   & .row:first-of-type {
     min-height: 120px;
   }
