@@ -30,7 +30,7 @@
             <project
               :id="project.id"
               :name="project.name"
-              :image="api_url + project.image.url"
+              :image="api_url + project.image.formats.large.url"
               :desc="project.description"
               :projectUrl="project.project_url"
               :githubUrl="project.github_url"
@@ -125,6 +125,7 @@ export default {
       await axios
         .get(this.api_url + "/projects")
         .then(response => {
+          console.log(response)
           this.projects = response.data;
         })
         .catch(error => {

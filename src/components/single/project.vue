@@ -63,9 +63,6 @@
     @media screen and (min-width: 768px) {
       height: 500px;
     }
-    @media screen and (min-width: 1200px) {
-      height: 600px;
-    }
   }
   &__info {
     padding: 30px;
@@ -78,7 +75,6 @@
     }
     @media screen and (min-width: 1200px) {
       padding: 80px 150px 80px 150px;
-      height: 600px;
     }
   }
   &__title,
